@@ -33,10 +33,27 @@ function App() {
 
 export default App */
 
+const welcome = {
+  gretting: 'Hey',
+  title: 'React',
+};
+
+function getTitle(title) {
+  return title
+}
+
 function App() {
+  const title = 'React';
+
   return (
     <div>
-      <h1>Hello World</h1>
+      <h1>
+        {/* {welcome.gretting} {welcome.title} */}
+        Hello {getTitle('React')}
+      </h1>
+
+      <label htmlFor="search">Search: </label>
+      <input type="text" id="seach"/>
     </div>
   )
 }
