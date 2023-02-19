@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AddCategory } from "./components/AddCategory";
+import { AddCategory, GifGrid } from "./components";
 
 export const GifExpertApp = () => {
   const [categories, setCategories] = useState(["One Punch", "Dragon Ball"]);
@@ -9,7 +9,6 @@ export const GifExpertApp = () => {
     setCategories((cat) => [newCategory, ...cat]); // 2da forma usando callback
   };
 
-  console.log(categories);
 
   return (
     <>
@@ -18,11 +17,9 @@ export const GifExpertApp = () => {
         // setCategories={setCategories}
         onNewCategory={onAddCategory} // debe tener sentido semántico y además debe ser un evento tomado desde el padre
       />
-      <ol>
-        {categories.map((category) => {
-          return <li key={category}>{category}</li>;
-        })}
-      </ol>
+        {categories.map((category) => ( // no usar el i (indice)
+           <GifGrid key={category} category={category}/> // usando () defino que devuelve un objeto
+        ))}
     </>
   );
 };
